@@ -156,7 +156,7 @@ class _ProjectItemState extends State<ProjectItem> {
               color: widget.color.withOpacity(.4),
             ),
           ),
-          ClipRRect(
+          ClipRRect( 
             borderRadius: vp.width <= 630
                 ? BorderRadius.vertical(
                     top: Radius.circular(descriptionCardRadius),
