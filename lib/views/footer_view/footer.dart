@@ -21,15 +21,15 @@ class _FooterViewState extends State<FooterView> {
       child: Column(
         children: [
           const SizedBox(
-            height: 30,
+            height: 60,
           ),
           SizedBox(
             width: vp.width,
             child: Wrap(
-              alignment: WrapAlignment.spaceBetween,
+              alignment: WrapAlignment.spaceAround,
               children: [
                 SizedBox(
-                  width: vp.width * .5,
+                  width:vp.width <= 760? vp.width*.9 : vp.width * .5,
                   child: SizedBox(
                     width: vp.width * .5,
                     child: Padding(
@@ -39,72 +39,66 @@ class _FooterViewState extends State<FooterView> {
                         children: [
                           Column(
                             children: [
-                              MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: GestureDetector(
-                                  onTap: () {},
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 4),
-                                    child: Text(
-                                      "Contact",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).canvasColor,
-                                      ),
-                                    ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8),
+                                child: Text(
+                                  "Contact",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Theme.of(context).canvasColor,
                                   ),
                                 ),
                               ),
-                              MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: GestureDetector(
-                                  onTap: () {},
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 4),
-                                    child: Text(
-                                      "+233(0) 557 340 556",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).canvasColor,
-                                      ),
-                                    ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8),
+                                child: Text(
+                                  "+233(0) 557 340 556",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Theme.of(context).canvasColor,
                                   ),
                                 ),
                               ),
-                              MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: GestureDetector(
-                                  onTap: () {},
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 4),
-                                    child: Text(
-                                      "Links",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).canvasColor,
-                                      ),
-                                    ),
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8),
+                                child: Text(
+                                  "norbertaberor@gmail.com",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w500,
+                                    color: Theme.of(context).canvasColor,
                                   ),
                                 ),
                               ),
                             ],
                           ),
                           Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8),
+                                child: Text(
+                                  "Discover",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                    color: Theme.of(context).canvasColor,
+                                  ),
+                                ),
+                              ),
                               MouseRegion(
                                 cursor: SystemMouseCursors.click,
                                 child: GestureDetector(
                                   onTap: () {},
                                   child: Padding(
                                     padding:
-                                        const EdgeInsets.symmetric(vertical: 4),
+                                        const EdgeInsets.symmetric(vertical: 8),
                                     child: Text(
-                                      "Email",
+                                      "Links",
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w500,
                                         color: Theme.of(context).canvasColor,
                                       ),
                                     ),
@@ -117,28 +111,11 @@ class _FooterViewState extends State<FooterView> {
                                   onTap: () {},
                                   child: Padding(
                                     padding:
-                                        const EdgeInsets.symmetric(vertical: 4),
-                                    child: Text(
-                                      "norbertaberor@gmail.com",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).canvasColor,
-                                      ),
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: GestureDetector(
-                                  onTap: () {},
-                                  child: Padding(
-                                    padding:
-                                        const EdgeInsets.symmetric(vertical: 4),
+                                        const EdgeInsets.symmetric(vertical: 8),
                                     child: Text(
                                       "Other",
                                       style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                                        fontWeight: FontWeight.w500,
                                         color: Theme.of(context).canvasColor,
                                       ),
                                     ),
@@ -152,71 +129,76 @@ class _FooterViewState extends State<FooterView> {
                     ),
                   ),
                 ),
-                Container(
-                  color: Colors.amber,
-                  width: vp.width * .5,
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.end,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20.0),
-                        // padding: const EdgeInsets.all(20.0),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Let's Talk",
-                              style: TextStyle(
-                                fontSize: 34,
-                                fontWeight: FontWeight.bold,
-                                color: Theme.of(context).canvasColor,
+                Padding(
+                  padding:  EdgeInsets.only(top: vp.width <= 760? 30.0 : 0.0),
+                  child: SizedBox(                    
+                    width:vp.width <= 760? vp.width*.9 : vp.width * .5,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                          // padding: const EdgeInsets.all(20.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "Let's Talk",
+                                style: TextStyle(
+                                  fontSize: 34,
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).canvasColor,
+                                ),
                               ),
-                            ),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              children: [
-                                const Text(
-                                  "Connect", 
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Colors.orange,
+                              Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Text(
+                                    "Connect",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.orange,
+                                    ),
                                   ),
-                                ),
-                                const SizedBox(
-                                  width: 3,
-                                ),
-                                Transform.rotate(
-                                  angle: -.7,
-                                  child: const Icon(
-                                    Icons.arrow_forward_rounded,
-                                    color: Colors.orange,
-                                    size: 17,
+                                  const SizedBox(
+                                    width: 3,
                                   ),
-                                ),
-                              ],
-                            ),
-                          ],
+                                  Transform.rotate(
+                                    angle: -.7,
+                                    child: const Icon(
+                                      Icons.arrow_forward_rounded,
+                                      color: Colors.orange,
+                                      size: 17,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                 ),
               ],
             ),
           ),
           const SizedBox(
-            height: 20.0,
+            height: 30.0,
           ),
           Text(
             "© ${DateTime.now().year} NorbertAberor",
             style: TextStyle(
               color: Theme.of(context).canvasColor.withOpacity(.5),
-              fontSize: 16,
+              // fontSize: 16,
               fontWeight: FontWeight.bold,
             ),
-          )
+          ),
+          const SizedBox(
+            height: 60,
+          ),
         ],
       ),
     );

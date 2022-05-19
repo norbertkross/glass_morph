@@ -400,7 +400,7 @@ class _GlassMorphState extends State<GlassMorph> {
             ),
             const OurTeam(),
             const SizedBox(
-              height: 50,
+              height: 100,
             ),
             const FooterView(),
           ],
