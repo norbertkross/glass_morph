@@ -178,7 +178,7 @@ class _FooterViewState extends State<FooterView> {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 const Text(
-                                  "Connect",
+                                  "Connect", 
                                   style: TextStyle(
                                     fontWeight: FontWeight.bold,
                                     color: Colors.orange,
