@@ -22,20 +22,20 @@ class MyApp extends StatelessWidget {
   // };
 
   static const  Map<int, Color> color = {
-    50: Color.fromRGBO(10, 171, 32, .1),
-    100: Color.fromRGBO(10, 171, 32, .2),
-    200: Color.fromRGBO(10, 171, 32, .3),
-    300: Color.fromRGBO(10, 171, 32, .4),
-    400: Color.fromRGBO(10, 171, 32, .5),
-    500: Color.fromRGBO(10, 171, 32, .6),
-    600: Color.fromRGBO(10, 171, 32, .7),
-    700: Color.fromRGBO(10, 171, 32, .8),
-    800: Color.fromRGBO(10, 171, 32, .9),
-    900: Color.fromRGBO(10, 171, 32, 1),
+    50: Color.fromRGBO(53, 100, 120, .1),
+    100: Color.fromRGBO(53, 100, 120, .2),
+    200: Color.fromRGBO(53, 100, 120, .3),
+    300: Color.fromRGBO(53, 100, 120, .4),
+    400: Color.fromRGBO(53, 100, 120, .5),
+    500: Color.fromRGBO(53, 100, 120, .6),
+    600: Color.fromRGBO(53, 100, 120, .7),
+    700: Color.fromRGBO(53, 100, 120, .8),
+    800: Color.fromRGBO(53, 100, 120, .9),
+    900: Color.fromRGBO(53, 100, 120, 1),
   };
   // final MaterialColor colorCustom = const MaterialColor(0xFF1a4ff7, color);
 
-  final MaterialColor colorCustom = const MaterialColor(0xFF0aab20, color);
+  final MaterialColor colorCustom = const MaterialColor(0xFF356478, color);
 
 
   // This widget is the root of your application.
@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: colorCustom,
-        primaryColorDark: const Color(0xFF0aab20),
+        primaryColorDark: const Color(0xFF356478),
       ),
       home: const GlassMorph(),
     );
