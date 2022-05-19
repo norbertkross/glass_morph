@@ -158,7 +158,7 @@ class _ProjectItemState extends State<ProjectItem> {
           ),
           ClipRRect( 
             borderRadius: vp.width <= 630
-                ? BorderRadius.vertical(
+                ? BorderRadius.vertical( 
                     top: Radius.circular(descriptionCardRadius),
                   )
                 : BorderRadius.horizontal(
