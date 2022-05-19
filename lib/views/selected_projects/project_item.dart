@@ -168,7 +168,7 @@ class _ProjectItemState extends State<ProjectItem> {
               filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
               child: ConstrainedBox(
                 constraints: const BoxConstraints(
-                  maxHeight: 300.0,
+                  maxHeight: 300.0, 
                 ),
                 child: Container(
                   height: projectTileHeight,
