@@ -11,7 +11,7 @@ class SelectedProjects extends StatefulWidget {
 class _SelectedProjectsState extends State<SelectedProjects> {
   // String p2 = "assets/ptrn1.png";
   // String p2 = "assets/ptrn2.png";
-  String p2 = "assets/ptrn3.png";
+  // String p2 = "assets/ptrn3.png";
 
   @override
   Widget build(BuildContext context) {
@@ -39,11 +39,11 @@ class _SelectedProjectsState extends State<SelectedProjects> {
         const SizedBox(
           height: 80.0,
         ),
-        Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage(p2), fit: BoxFit.cover, opacity: .7),
-          ),
+        SizedBox(
+          // decoration: BoxDecoration(
+          // image: DecorationImage(
+          //     image: AssetImage(p2), fit: BoxFit.cover, opacity: .7),
+          // ),
           child: Stack(
             children: [
               ConstrainedBox(
@@ -73,8 +73,9 @@ class _SelectedProjectsState extends State<SelectedProjects> {
                         ))
                 ],
               ),
-
-              const SizedBox(height: 80.0,),
+              const SizedBox(
+                height: 80.0,
+              ),
             ],
           ),
         ),

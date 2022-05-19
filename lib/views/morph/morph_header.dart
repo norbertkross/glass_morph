@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:glass_morph/views/footer_view/footer.dart';
 import 'package:glass_morph/views/our_services/our_services.dart';
+import 'package:glass_morph/views/our_team/our_team.dart';
 import 'package:glass_morph/views/selected_projects/selected_projects.dart';
 
 class GlassMorph extends StatefulWidget {
@@ -32,7 +34,7 @@ class _GlassMorphState extends State<GlassMorph> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            SizedBox(              
+            SizedBox(
               child: ConstrainedBox(
                 constraints: BoxConstraints(
                   minHeight:
@@ -122,121 +124,131 @@ class _GlassMorphState extends State<GlassMorph> {
                             ),
                           ),
 
-                        // List in middle of header  
-                        vp.width <= minMidWidth?
-                        const SizedBox():
-                          Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: [
-                              for (int j = 0; j < headerItems.length; j++)
-                                Wrap(
+                          // List in middle of header
+                          vp.width <= minMidWidth
+                              ? const SizedBox()
+                              : Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
+                                  children: [
+                                    for (int j = 0; j < headerItems.length; j++)
+                                      Wrap(
+                                        children: [
+                                          MouseRegion(
+                                            cursor: SystemMouseCursors.click,
+                                            child: GestureDetector(
+                                              onTap: () {
+                                                setState(() {
+                                                  headerItemIndex = j;
+                                                });
+                                              },
+                                              child: Column(
+                                                children: [
+                                                  Text(
+                                                    headerItems[j],
+                                                    style: TextStyle(
+                                                      fontWeight:
+                                                          headerItemIndex == j
+                                                              ? FontWeight.bold
+                                                              : FontWeight.w600,
+                                                      color: headerItemIndex ==
+                                                              j
+                                                          ? Theme.of(context)
+                                                              .disabledColor
+                                                              .withOpacity(.9)
+                                                          : Theme.of(context)
+                                                              .disabledColor
+                                                              .withOpacity(.6),
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 4,
+                                                  ),
+                                                  Container(
+                                                    height: 3,
+                                                    width: 20,
+                                                    decoration: BoxDecoration(
+                                                      color: headerItemIndex ==
+                                                              j
+                                                          ? Theme.of(context)
+                                                              .disabledColor
+                                                              .withOpacity(.9)
+                                                          : Colors.transparent,
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              8),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          j < headerItems.length - 1
+                                              ? const SizedBox(
+                                                  width: 12,
+                                                )
+                                              : const SizedBox(),
+                                        ],
+                                      ),
+                                  ],
+                                ),
+
+                          // Login Register buttons
+                          vp.width <= minMidWidth
+                              ? IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.menu,
+                                    size: 30,
+                                  ),
+                                )
+                              : Wrap(
+                                  crossAxisAlignment: WrapCrossAlignment.center,
                                   children: [
                                     MouseRegion(
                                       cursor: SystemMouseCursors.click,
-                                      child: GestureDetector(
-                                        onTap: () {
-                                          setState(() {
-                                            headerItemIndex = j;
-                                          });
-                                        },
-                                        child: Column(
-                                          children: [
-                                            Text(
-                                              headerItems[j],
-                                              style: TextStyle(
-                                                fontWeight: headerItemIndex == j
-                                                    ? FontWeight.bold
-                                                    : FontWeight.w600,
-                                                color: headerItemIndex == j
-                                                    ? Theme.of(context)
-                                                        .disabledColor
-                                                        .withOpacity(.9)
-                                                    : Theme.of(context)
-                                                        .disabledColor
-                                                        .withOpacity(.6),
-                                              ),
-                                            ),
-                                            const SizedBox(
-                                              height: 4,
-                                            ),
-                                            Container(
-                                              height: 3,
-                                              width: 20,
-                                              decoration: BoxDecoration(
-                                                color: headerItemIndex == j
-                                                    ? Theme.of(context)
-                                                        .disabledColor
-                                                        .withOpacity(.9)
-                                                    : Colors.transparent,
-                                                borderRadius:
-                                                    BorderRadius.circular(8),
-                                              ),
-                                            ),
-                                          ],
+                                      child: Text(
+                                        "Login",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Theme.of(context)
+                                              .disabledColor
+                                              .withOpacity(.9),
                                         ),
                                       ),
                                     ),
-                                    j < headerItems.length - 1
-                                        ? const SizedBox(
-                                            width: 12,
-                                          )
-                                        : const SizedBox(),
+                                    const SizedBox(
+                                      width: 16,
+                                    ),
+                                    MaterialButton(
+                                      shape: RoundedRectangleBorder(
+                                        borderRadius: BorderRadius.circular(4),
+                                      ),
+                                      color: Theme.of(context)
+                                          .disabledColor
+                                          .withOpacity(.9),
+                                      onPressed: () {},
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 16.0, vertical: 12.0),
+                                        child: Text(
+                                          "Register",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color:
+                                                Theme.of(context).canvasColor,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 12,
+                                    ),
                                   ],
                                 ),
-                            ],
-                          ),
-
-                          // Login Register buttons
-                         vp.width <= minMidWidth?
-                         IconButton(onPressed: (){}, icon: const Icon(Icons.menu,size: 30,),):
-                          Wrap(
-                            crossAxisAlignment: WrapCrossAlignment.center,
-                            children: [
-                              MouseRegion(
-                                cursor: SystemMouseCursors.click,
-                                child: Text(
-                                  "Login",
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                    color: Theme.of(context)
-                                        .disabledColor
-                                        .withOpacity(.9),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 16,
-                              ),
-                              MaterialButton(
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(4),
-                                ),
-                                color: Theme.of(context)
-                                    .disabledColor
-                                    .withOpacity(.9),
-                                onPressed: () {},
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 16.0, vertical: 12.0),
-                                  child: Text(
-                                    "Register",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Theme.of(context).canvasColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(
-                                width: 12,
-                              ),
-                            ],
-                          ),
                         ],
                       ),
                     ),
 
-                 
                     Padding(
                       padding: const EdgeInsets.only(top: 60.0),
                       child: Center(
@@ -247,13 +259,17 @@ class _GlassMorphState extends State<GlassMorph> {
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.center,
-                            mainAxisAlignment: vp.width <= minMidWidth? MainAxisAlignment.start : MainAxisAlignment.end,
+                            mainAxisAlignment: vp.width <= minMidWidth
+                                ? MainAxisAlignment.start
+                                : MainAxisAlignment.end,
                             children: [
                               Wrap(
                                 alignment: WrapAlignment.spaceBetween,
                                 children: [
                                   SizedBox(
-                                    width:vp.width <= minMidWidth? vp.width * .85 : vp.width * .6,
+                                    width: vp.width <= minMidWidth
+                                        ? vp.width * .85
+                                        : vp.width * .6,
                                     child: Padding(
                                       padding: const EdgeInsets.all(20.0),
                                       child: Column(
@@ -263,10 +279,13 @@ class _GlassMorphState extends State<GlassMorph> {
                                             Text(
                                               "We Create Projects & Grow Brands",
                                               style: TextStyle(
-                                                fontSize: vp.width <= minMidWidth? vp.width *.1 : 80,
+                                                fontSize:
+                                                    vp.width <= minMidWidth
+                                                        ? vp.width * .1
+                                                        : 80,
                                                 fontWeight: FontWeight.bold,
-                                                color:
-                                                    Theme.of(context).canvasColor,
+                                                color: Theme.of(context)
+                                                    .canvasColor,
                                               ),
                                             ),
                                             const SizedBox(
@@ -278,27 +297,39 @@ class _GlassMorphState extends State<GlassMorph> {
                                                 alignment: WrapAlignment.start,
                                                 children: [
                                                   MaterialButton(
-                                                    shape: RoundedRectangleBorder(
+                                                    shape:
+                                                        RoundedRectangleBorder(
                                                       borderRadius:
-                                                          BorderRadius.circular(4),
+                                                          BorderRadius.circular(
+                                                              4),
                                                     ),
                                                     color: Theme.of(context)
                                                         .disabledColor
                                                         .withOpacity(.9),
                                                     onPressed: () {},
                                                     child: Padding(
-                                                      padding:  EdgeInsets
-                                                              .symmetric(
-                                                          horizontal:vp.width <= minMidWidth? 15: 40.0,
-                                                          vertical:vp.width <= minMidWidth? 12: 20.0),
+                                                      padding: EdgeInsets.symmetric(
+                                                          horizontal: vp
+                                                                      .width <=
+                                                                  minMidWidth
+                                                              ? 15
+                                                              : 40.0,
+                                                          vertical: vp.width <=
+                                                                  minMidWidth
+                                                              ? 12
+                                                              : 20.0),
                                                       child: Text(
                                                         "Get Started",
                                                         style: TextStyle(
-                                                          fontSize:vp.width <= minMidWidth? vp.width *.03 : 15,
+                                                          fontSize: vp.width <=
+                                                                  minMidWidth
+                                                              ? vp.width * .03
+                                                              : 15,
                                                           fontWeight:
                                                               FontWeight.bold,
-                                                          color: Theme.of(context)
-                                                              .canvasColor,
+                                                          color:
+                                                              Theme.of(context)
+                                                                  .canvasColor,
                                                         ),
                                                       ),
                                                     ),
@@ -311,25 +342,29 @@ class _GlassMorphState extends State<GlassMorph> {
                                   ),
 
                                   Padding(
-                                    padding: EdgeInsets.only(top: vp.width <= 1000? 60:0.0),
+                                    padding: EdgeInsets.only(
+                                        top: vp.width <= 1000 ? 60 : 0.0),
                                     child: Card(
                                       elevation: 30,
                                       shape: RoundedRectangleBorder(
                                         borderRadius: BorderRadius.vertical(
-                                          bottom: Radius.circular(mainPillBorder),
+                                          bottom:
+                                              Radius.circular(mainPillBorder),
                                           top: Radius.circular(mainPillBorder),
                                         ),
                                       ),
                                       child: Padding(
                                         padding: const EdgeInsets.all(4.0),
                                         child: Container(
-                                          height: 
-                                          vp.width <= 550? 450 :
-                                           mainPillHeight,
-                                          width: vp.width <= 550? vp.width * .8 : mainPillWidth,
+                                          height: vp.width <= 550
+                                              ? 450
+                                              : mainPillHeight,
+                                          width: vp.width <= 550
+                                              ? vp.width * .8
+                                              : mainPillWidth,
                                           decoration: BoxDecoration(
-                                            borderRadius:
-                                                BorderRadius.circular(mainPillBorder),
+                                            borderRadius: BorderRadius.circular(
+                                                mainPillBorder),
                                             image: DecorationImage(
                                                 image: AssetImage(h1),
                                                 fit: BoxFit.cover),
@@ -359,6 +394,15 @@ class _GlassMorphState extends State<GlassMorph> {
             const OurServices(),
 
             const SelectedProjects(),
+
+            const SizedBox(
+              height: 150,
+            ),
+            const OurTeam(),
+            const SizedBox(
+              height: 50,
+            ),
+            const FooterView(),
           ],
         ),
       ),
