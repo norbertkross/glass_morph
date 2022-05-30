@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glass_morph/views/footer_view/footer.dart';
+import 'package:glass_morph/views/our_content/our_content.dart';
 import 'package:glass_morph/views/our_services/our_services.dart';
 import 'package:glass_morph/views/our_team/our_team.dart';
 import 'package:glass_morph/views/selected_projects/selected_projects.dart';
@@ -389,6 +390,9 @@ class _GlassMorphState extends State<GlassMorph> {
             const SizedBox(
               height: 150,
             ),
+
+            // Our Content
+            const OurContent(),
 
             // Other Widgets
             const OurServices(),

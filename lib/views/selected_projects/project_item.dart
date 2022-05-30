@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 
 class ProjectItem extends StatefulWidget {
@@ -156,33 +154,21 @@ class _ProjectItemState extends State<ProjectItem> {
               color: widget.color.withOpacity(.4),
             ),
           ),
-          ClipRRect( 
-            borderRadius: vp.width <= 630
-                ? BorderRadius.vertical( 
-                    top: Radius.circular(descriptionCardRadius),
-                  )
-                : BorderRadius.horizontal(
-                    right: Radius.circular(descriptionCardRadius),
-                  ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
-              child: ConstrainedBox(
-                constraints: const BoxConstraints(
-                  maxHeight: 300.0, 
-                ),
-                child: Container(
-                  height: projectTileHeight,
-                  decoration: BoxDecoration(
-                    color: Colors.grey.shade200.withOpacity(0.5),
-                    borderRadius: vp.width <= 630
-                        ? BorderRadius.vertical(
-                            top: Radius.circular(descriptionCardRadius),
-                          )
-                        : BorderRadius.horizontal(
-                            right: Radius.circular(descriptionCardRadius),
-                          ),
-                  ),
-                ),
+          ConstrainedBox(
+            constraints: const BoxConstraints(
+              maxHeight: 300.0, 
+            ),
+            child: Container(
+              height: projectTileHeight,
+              decoration: BoxDecoration(
+                color: Colors.grey.shade200.withOpacity(0.5),
+                borderRadius: vp.width <= 630
+                    ? BorderRadius.vertical(
+                        top: Radius.circular(descriptionCardRadius),
+                      )
+                    : BorderRadius.horizontal(
+                        right: Radius.circular(descriptionCardRadius),
+                      ),
               ),
             ),
           ),
