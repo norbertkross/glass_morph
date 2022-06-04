@@ -41,6 +41,8 @@ class _OurServicesState extends State<OurServices> {
       child: Column(
         children: [
 
+              SizedBox(height: mq.width <= 750? 30: 150,),
+
               Text("UI Challenges",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -50,7 +52,7 @@ class _OurServicesState extends State<OurServices> {
               ),
               ),
              
-           const SizedBox(height: 45.0,),
+           mq.width <=700? const SizedBox() : const SizedBox(height: 45.0,),
             workItem(mq:mq,uiItems: uiItems),
            const SizedBox(height: 20.0,),
             
@@ -97,8 +99,8 @@ class _OurServicesState extends State<OurServices> {
                                   child: MouseRegion(
                                     cursor: SystemMouseCursors.click ,
                                     child: Container(             
-                                      height: 80.0,
-                                      width: 80.0,
+                                      height: 60.0,
+                                      width: 60.0,
                                       decoration: BoxDecoration(
                                         shape: BoxShape.circle,
                                       //color: Colors.limeAccent,
@@ -130,6 +132,7 @@ class _OurServicesState extends State<OurServices> {
                                 ),
                                ),
                               ),
+                              const SizedBox(height: 20,),
                             ],
                           ),
                         ),                  

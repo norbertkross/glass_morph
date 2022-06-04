@@ -40,8 +40,8 @@ class _OurTeamState extends State<OurTeam> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(
-                      height: 70.0,
+                     SizedBox(
+                    height: vp.width <=700? 30: 70,  
                     ),
                     Text(
                       "Our Team",

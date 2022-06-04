@@ -21,7 +21,20 @@ class MyApp extends StatelessWidget {
   //   900: Color.fromRGBO(26, 79, 247, 1),
   // };
 
-  static const  Map<int, Color> color = {
+  // static const Map<int, Color> color = {
+  //   50: Color.fromRGBO(204, 32, 32, .1),
+  //   100: Color.fromRGBO(204, 32, 32, .2),
+  //   200: Color.fromRGBO(204, 32, 32, .3),
+  //   300: Color.fromRGBO(204, 32, 32, .4),
+  //   400: Color.fromRGBO(204, 32, 32, .5),
+  //   500: Color.fromRGBO(204, 32, 32, .6),
+  //   600: Color.fromRGBO(204, 32, 32, .7),
+  //   700: Color.fromRGBO(204, 32, 32, .8),
+  //   800: Color.fromRGBO(204, 32, 32, .9),
+  //   900: Color.fromRGBO(204, 32, 32, 1),
+  // };
+
+  static const Map<int, Color> color = {
     50: Color.fromRGBO(53, 100, 120, .1),
     100: Color.fromRGBO(53, 100, 120, .2),
     200: Color.fromRGBO(53, 100, 120, .3),
@@ -36,17 +49,19 @@ class MyApp extends StatelessWidget {
   // final MaterialColor colorCustom = const MaterialColor(0xFF1a4ff7, color);
 
   final MaterialColor colorCustom = const MaterialColor(0xFF356478, color);
-
+  // final MaterialColor colorCustom = const MaterialColor(0xFFcc2020, color);
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // debugInvertOversizedImages = true;
     return MaterialApp(
       title: 'glass_morph',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: colorCustom,
         primaryColorDark: const Color(0xFF356478),
+        // primaryColorDark: const Color(0xFFcc2020),
       ),
       home: const GlassMorph(),
     );

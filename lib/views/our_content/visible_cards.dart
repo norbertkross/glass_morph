@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class VisibleCards extends StatefulWidget {
@@ -14,7 +16,7 @@ class _VisibleCardsState extends State<VisibleCards> {
   String h1 = "assets/h2.jpg";
   @override
   Widget build(BuildContext context) {
-
+    Size vp = MediaQuery.of(context).size;
     // large dimensions
     double cardHeight = 400.0;
     double cardWidth = 300.0;
@@ -26,17 +28,24 @@ class _VisibleCardsState extends State<VisibleCards> {
       padding: const EdgeInsets.all(12.0),
       child: SizedBox(
         height: cardHeight,
-          width:widget.defaultIndex == widget.liveIndex? cardWidth : smallCardWidth,        
+          width:widget.defaultIndex == widget.liveIndex? ( vp.width <= 750? 250 : cardWidth) : smallCardWidth,        
         child: Stack(
           children: [
-            AnimatedContainer(
-              duration: const Duration(milliseconds: 300),
-              height: cardHeight,
-              width:widget.defaultIndex == widget.liveIndex? cardWidth : smallCardWidth,
-              decoration: BoxDecoration(
+            Card(
+              margin: const EdgeInsets.all(0),
+              elevation: 30,
+              shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(20.0),
-                color: Theme.of(context).disabledColor,
-                image: DecorationImage(image: AssetImage(widget.defaultIndex == widget.liveIndex? p2:h1),fit: BoxFit.cover) ,
+              ),
+              child: AnimatedContainer(
+                duration: const Duration(milliseconds: 300),
+                height: cardHeight,
+                width:widget.defaultIndex == widget.liveIndex? cardWidth : smallCardWidth,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20.0),
+                  color: Theme.of(context).disabledColor,
+                  image: DecorationImage(image: AssetImage(widget.defaultIndex == widget.liveIndex? p2:h1),fit: BoxFit.cover) ,
+                ),
               ),
             ),
          
@@ -47,41 +56,84 @@ class _VisibleCardsState extends State<VisibleCards> {
              SizedBox(
                child: Stack(
                  children: [
-   Container(
-              // height: cardHeight,
-              width:widget.defaultIndex == widget.liveIndex? cardWidth : smallCardWidth,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20.0),
-                color: Colors.black.withOpacity(.3),
-              ),
-            ),                   
+            Container(
+                        // height: cardHeight,
+                        width:widget.defaultIndex == widget.liveIndex? cardWidth : smallCardWidth,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20.0),
+                          color: Colors.black.withOpacity(.3),
+                        ),
+                      ),                   
                    widget.defaultIndex == widget.liveIndex?
                     SizedBox(
                     width: widget.defaultIndex == widget.liveIndex? cardWidth : smallCardWidth,
-                    child: Wrap(
-                      alignment: WrapAlignment.spaceAround,
-                      children: const [
-                        Text("data1"),
-                        Text("data1"),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Wrap(
+                          alignment: WrapAlignment.spaceAround,
+                          children:  [
+                            Text("Cooking Course",style:TextStyle(
+                              color: Theme.of(context).canvasColor,
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                            ),),
+                            Column(
+                              children: [
+                                Text("100",style:TextStyle(
+                                  color: Theme.of(context).canvasColor,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                ),),
+                                Text("Topics",style:TextStyle(
+                                  color: Theme.of(context).canvasColor,
+                                  fontSize: 17,
+                                ),),
+                              ],
+                            ),
+                            
+                          ],
+                        ),
+
+                        const SizedBox(height: 30.0,),
                       ],
                     ),)
 
                     :
                     SizedBox(
-                      child: Stack(
-                        children: [
+                      height: cardHeight ,
+                      child: Padding(
+                        padding: const EdgeInsets.only(bottom:20.0),
+                        child: Stack(
+                          children: [
 
-                          Align(
-                            alignment: Alignment.bottomCenter,
-                            child: Container(
-                              height: 100,
-                              width: smallCardWidth - 30.0,
-                              color: Theme.of(context).primaryColor,
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Container(
+                                height: 100,
+                                width: smallCardWidth - 30.0,
+                                color: Theme.of(context).primaryColor,
+                              ),
                             ),
-                          ),
 
-                          RotatedBox(quarterTurns: 3,child: Text("Hello world gaian here"),),
-                        ],
+                            Align(
+                              alignment: Alignment.bottomLeft,
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                  left: 25.0,
+                                  bottom:40.0,
+                                ),
+                                child: RotatedBox(quarterTurns: 3,child: Text("Business"
+                                ,style:TextStyle(
+                                color: Theme.of(context).canvasColor,
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),),),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                  ],

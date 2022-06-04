@@ -73,7 +73,7 @@ class _FooterViewState extends State<FooterView> {
                             ],
                           ),
                           Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
                               Padding(
                                 padding:
@@ -184,18 +184,18 @@ class _FooterViewState extends State<FooterView> {
             ),
           ),
           const SizedBox(
-            height: 30.0,
+            height: 60.0,
           ),
           Text(
-            "© ${DateTime.now().year} NorbertAberor",
+            "© ${DateTime.now().year} norbertaberor",
             style: TextStyle(
               color: Theme.of(context).canvasColor.withOpacity(.5),
               // fontSize: 16,
-              fontWeight: FontWeight.bold,
+              fontWeight: FontWeight.w500,
             ),
           ),
           const SizedBox(
-            height: 60,
+            height: 25,
           ),
         ],
       ),

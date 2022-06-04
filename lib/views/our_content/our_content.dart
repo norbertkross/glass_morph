@@ -18,72 +18,16 @@ class _OurContentState extends State<OurContent> {
 
   @override
   Widget build(BuildContext context) {
-    Size vp = MediaQuery.of(context).size;
-    double leadTextSize = 60.0;
-    return Container(
-      color: Colors.amber,
-      width: vp.width,
+    // Size vp = MediaQuery.of(context).size;
+    // double leadTextSize = 60.0;
+    return SizedBox(
+      // width: vp.width,
       height: 450,
-      child: ListView(
-        scrollDirection: Axis.horizontal,
-        children: [
-          Wrap(
+      child: Center(
+        child: viewForMoreCards(
+          child: Wrap(
             crossAxisAlignment: WrapCrossAlignment.center,
             children: [
-              Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.all(12.0),
-                    child: Column(
-                      children: [
-                        Text(
-                          "Watch.",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: leadTextSize,
-                            color: Theme.of(context).disabledColor.withOpacity(.85),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15.0,
-                        ),
-                        Text(
-                          "Learn.",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: leadTextSize,
-                            color: Theme.of(context).disabledColor.withOpacity(.85),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15.0,
-                        ),
-                        Text(
-                          "Grow.",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: leadTextSize,
-                            color: Theme.of(context).disabledColor.withOpacity(.85),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 30.0,
-                        ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor.withOpacity(.1),
-                          ),
-                          width: 200,
-                          height: 50,
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-
-              const SizedBox(width: 30,),
-
               // Gallery View Cards
               Column(
                 children: [
@@ -91,19 +35,25 @@ class _OurContentState extends State<OurContent> {
                     children: [
                       for (int y = 0; y < 5; y++)
                         GestureDetector(
-                            onTap: () {
-                              switchIndex(y);
-                            },
-                            child: VisibleCards(
-                                liveIndex: currentPage, defaultIndex: y)),
+                          onTap: () {
+                            switchIndex(y);
+                          },
+                          child: VisibleCards(
+                              liveIndex: currentPage, defaultIndex: y),
+                        ),
                     ],
                   )
                 ],
               )
             ],
           ),
-        ],
+        ),
       ),
     );
+  }
+
+  Widget viewForMoreCards({required Widget child}) {
+
+    return ListView(scrollDirection: Axis.horizontal,shrinkWrap: true, children: [child]);
   }
 }
