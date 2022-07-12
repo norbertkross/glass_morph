@@ -78,11 +78,11 @@ class _GlassMorphState extends State<GlassMorph> {
                                   child: Container(
                                     height: vp.height,
                                     width: vp.width,
-                                    decoration: const BoxDecoration(
+                                    decoration: BoxDecoration(
                                       image: DecorationImage(
-                                        scale: 10.0,
-                                          opacity: .05,
-                                          image: AssetImage("assets/pattern2.png"),
+                                        scale: 1.0,
+                                          opacity: vp.width <= 600 ? 0.008: .05,
+                                          image:const AssetImage("assets/pattern2.png"),
                                           fit: BoxFit.cover),
                                     ),
                                   ),
