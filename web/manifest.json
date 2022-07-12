@@ -1,11 +1,11 @@
 {
-    "name": "glass_morph",
-    "short_name": "glass_morph",
+    "name": "Tively",
+    "short_name": "Tively Organisation",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "A hypothetical landing page for an organisation",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

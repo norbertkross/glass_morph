@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // debugInvertOversizedImages = true;
     return MaterialApp(
-      title: 'glass_morph',
+      title: 'Tively',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: colorCustom,

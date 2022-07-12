@@ -21,7 +21,7 @@ class _GlassMorphState extends State<GlassMorph> {
   String patternRoundBubles = "assets/pattern_1.png";
   String p2 = "assets/p2.jpg";
   String h1 = "assets/h2.jpg";
-  String roundPattern = "assets/ptrn1.png";
+  // String roundPattern = "assets/ptrn1.png";
 
   double mainPillHeight = 700.0;
   double mainPillWidth = 400.0;
@@ -78,10 +78,11 @@ class _GlassMorphState extends State<GlassMorph> {
                                   child: Container(
                                     height: vp.height,
                                     width: vp.width,
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                       image: DecorationImage(
+                                        scale: 10.0,
                                           opacity: .05,
-                                          image: AssetImage(roundPattern),
+                                          image: AssetImage("assets/pattern2.png"),
                                           fit: BoxFit.cover),
                                     ),
                                   ),

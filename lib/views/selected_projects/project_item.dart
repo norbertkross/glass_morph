@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class ProjectItem extends StatefulWidget {
   final Color color;
-  const ProjectItem({Key? key, required this.color}) : super(key: key);
+  final String assetName;
+  const ProjectItem({Key? key, required this.color, required this.assetName}) : super(key: key);
 
   @override
   State<ProjectItem> createState() => _ProjectItemState();
@@ -25,14 +26,14 @@ class _ProjectItemState extends State<ProjectItem> {
           child: vp.width <= 630
               ? Wrap(
                   children: [
-                    frostedSideItem(),
+                    frostedSideItem(widget.assetName),
                     colorDeepSide(),
                   ],
                 )
               : Wrap(
                   children: [
                     colorDeepSide(),
-                    frostedSideItem(),
+                    frostedSideItem(widget.assetName),
                   ],
                 ),
         ),
@@ -137,7 +138,7 @@ class _ProjectItemState extends State<ProjectItem> {
     );
   }
 
-  Widget frostedSideItem() {
+  Widget frostedSideItem(String assetName) {
     Size vp = MediaQuery.of(context).size;
     return ConstrainedBox(
       constraints: const BoxConstraints(
@@ -156,12 +157,12 @@ class _ProjectItemState extends State<ProjectItem> {
           ),
           ConstrainedBox(
             constraints: const BoxConstraints(
-              maxHeight: 300.0, 
+              maxHeight: 300.0,
             ),
             child: Container(
               height: projectTileHeight,
               decoration: BoxDecoration(
-                color: Colors.grey.shade200.withOpacity(0.5),
+                // color: Colors.grey.shade200.withOpacity(0.5),
                 borderRadius: vp.width <= 630
                     ? BorderRadius.vertical(
                         top: Radius.circular(descriptionCardRadius),
@@ -169,6 +170,7 @@ class _ProjectItemState extends State<ProjectItem> {
                     : BorderRadius.horizontal(
                         right: Radius.circular(descriptionCardRadius),
                       ),
+                image: DecorationImage(image: AssetImage(assetName)),
               ),
             ),
           ),

@@ -11,7 +11,11 @@ class SelectedProjects extends StatefulWidget {
 class _SelectedProjectsState extends State<SelectedProjects> {
   // String p2 = "assets/ptrn1.png";
   // String p2 = "assets/ptrn2.png";
-  // String p2 = "assets/ptrn3.png";
+
+  String students = "assets/students.png";
+  String chips = "assets/chips.png";
+  String cpu = "assets/cpu.png";
+  String sales = "assets/sales.png";
 
   @override
   Widget build(BuildContext context) {
@@ -21,6 +25,9 @@ class _SelectedProjectsState extends State<SelectedProjects> {
       Theme.of(context).primaryColor,
       Colors.deepOrange,
     ];
+
+    List<String> images = [students,chips,cpu,sales];
+
     Size vp = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -68,6 +75,7 @@ class _SelectedProjectsState extends State<SelectedProjects> {
                           children: [
                             ProjectItem(
                               color: projectColors[k],
+                              assetName: images[k],
                             ),
                           ],
                         ))
